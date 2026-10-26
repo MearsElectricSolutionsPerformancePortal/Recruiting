@@ -2,115 +2,137 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
 <title>Mears Power Path to Leadership</title>
-
 <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  width: ;
-  height: ;
-  background: #111;
+html,body {
+  margin:0;
+  padding:0;
+  width:100%;
+  min-height:100%;
+  background:#111;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
-.viewport {
-  width: 100vw;
-  height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
+body {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
 }
 
-.wrap {
-  position: relative;
-  line-height: 0;
-  flex: 0 0 auto;
+.page {
+  width:100%;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.brochure-wrap {
+  position:relative;
+  width:min(100vw,150vh);
+  aspect-ratio:3/2;
+  line-height:0;
 }
 
 .brochure {
-  display: block;
-  width: ;
-  height: ;
-  object-fit: contain;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
 }
 
 .hotspot {
-  position: absolute;
-  display: block;
-  z-index: 20;
-  border-radius: 10px;
-  cursor: pointer;
+  position:absolute;
+  display:block;
+  z-index:10;
+  cursor:pointer;
+  border-radius:10px;
+  outline:none;
 }
 
 .hotspot:hover {
-  background: rgba(255,255,255,.03);
+  background:rgba(255,255,255,.06);
+  box-shadow:inset 0 0 0 3px rgba(255,255,255,.35);
 }
 
-/* Desktop: largest possible fit without cropping */
-@media (min-width: 900px) {
-  .wrap {
-    width: min(100vw, 150dvh);
-    aspect-ratio: 3 / 2;
-  }
+.hotspot:focus-visible {
+  box-shadow:inset 0 0 0 4px #fff,0 0 0 4px #f58220;
 }
 
-/* Phone portrait: whole brochure fits phone width */
-@media (max-width: 899px) and (orientation: portrait) {
-  .viewport {
-    align-items: flex-start;
-    height: auto;
-    min-height: 100dvh;
+/* The original simple mobile behavior:
+   fill the phone width, allow normal page scrolling and native pinch zoom. */
+@media(max-width:899px) {
+  body {
+    display:block;
+    min-height:100%;
+    overflow:auto;
   }
 
-  .wrap {
-    width: 100vw;
-    aspect-ratio: 3 / 2;
-  }
-}
-
-/* Phone landscape: make brochure as large as the viewport allows */
-@media (max-width: 899px) and (orientation: landscape) {
-  html, body {
-    overflow: hidden;
+  .page {
+    min-height:0;
+    height:auto;
+    display:block;
   }
 
-  .viewport {
-    width: 100vw;
-    height: 100dvh;
-    overflow: hidden;
-  }
-
-  .wrap {
-    width: min(100vw, 150dvh);
-    height: min(100dvh, 66.6667vw);
-    aspect-ratio: 3 / 2;
+  .brochure-wrap {
+    width:100vw;
+    margin:0;
   }
 }
 </style>
-
 </head>
 <body>
-<div class="viewport"><div class="wrap">
-<img class="brochure" src="PowerPath_to_Leadership_career_brochure_final.png" alt="Mears Electric Solutions Power Path to Leadership career brochure">
-<a class="hotspot" href="job-descriptions/laborer/" aria-label="Laborer job description" title="View Laborer job description" style="left:1.4974%;top:43.8477%;width:7.0312%;height:11.5234%;"></a>
-<a class="hotspot" href="job-descriptions/apprentice/" aria-label="Apprentice Electrician job description" title="View Apprentice Electrician job description" style="left:9.3099%;top:43.8477%;width:7.3568%;height:11.5234%;"></a>
-<a class="hotspot" href="job-descriptions/journeyman/" aria-label="Journeyman Electrician job description" title="View Journeyman Electrician job description" style="left:17.3177%;top:43.8477%;width:7.8125%;height:11.5234%;"></a>
-<a class="hotspot" href="job-descriptions/foreman/" aria-label="Electrical Foreman job description" title="View Electrical Foreman job description" style="left:30.7943%;top:25.1953%;width:9.3099%;height:10.6445%;"></a>
-<a class="hotspot" href="job-descriptions/superintendent/" aria-label="Electrical Superintendent job description" title="View Electrical Superintendent job description" style="left:41.0156%;top:25.1953%;width:9.1797%;height:10.6445%;"></a>
-<a class="hotspot" href="job-descriptions/construction-manager/" aria-label="Construction Manager job description" title="View Construction Manager job description" style="left:51.3021%;top:25.1953%;width:8.9193%;height:10.6445%;"></a>
-<a class="hotspot" href="job-descriptions/project-coordinator/" aria-label="Project Coordinator job description" title="View Project Coordinator job description" style="left:30.7943%;top:40.1367%;width:9.3099%;height:10.9375%;"></a>
-<a class="hotspot" href="job-descriptions/assistant-project-manager/" aria-label="Assistant Project Manager job description" title="View Assistant Project Manager job description" style="left:41.0156%;top:40.1367%;width:9.3099%;height:10.9375%;"></a>
-<a class="hotspot" href="job-descriptions/project-manager/" aria-label="Project Manager job description" title="View Project Manager job description" style="left:51.3021%;top:40.1367%;width:8.9193%;height:10.9375%;"></a>
-<a class="hotspot" href="job-descriptions/field-safety-specialist/" aria-label="Field Safety Specialist job description" title="View Field Safety Specialist job description" style="left:30.8594%;top:55.6641%;width:11.4583%;height:10.8398%;"></a>
-<a class="hotspot" href="job-descriptions/safety-manager/" aria-label="Field Safety Manager job description" title="View Field Safety Manager job description" style="left:43.2943%;top:55.6641%;width:11.4583%;height:10.8398%;"></a>
-<a class="hotspot" href="job-descriptions/area-safety-manager/" aria-label="Area Safety Manager job description" title="View Area Safety Manager job description" style="left:55.3385%;top:55.6641%;width:11.5234%;height:10.8398%;"></a>
-<a class="hotspot" href="job-descriptions/estimator/" aria-label="Estimator job description" title="View Estimator job description" style="left:30.9245%;top:70.8008%;width:11.4583%;height:10.4492%;"></a>
-<a class="hotspot" href="job-descriptions/senior-estimator/" aria-label="Senior Estimator job description" title="View Senior Estimator job description" style="left:43.4245%;top:70.8008%;width:11.4583%;height:10.4492%;"></a>
-</div></div>
-
-
-
-</body></html>
+<main class="page">
+  <div class="brochure-wrap">
+    <img class="brochure"
+      src="PowerPath_to_Leadership_career_brochure_final.png"
+      alt="Mears Electric Solutions Power Path to Leadership career brochure">
+    <a class="hotspot" href="job-descriptions/laborer/"
+        aria-label="Laborer job description"
+        title="View Laborer job description"
+        style="left:1.4974%;top:43.8477%;width:7.0312%;height:11.5234%;"></a><a class="hotspot" href="job-descriptions/apprentice/"
+        aria-label="Apprentice Electrician job description"
+        title="View Apprentice Electrician job description"
+        style="left:9.3099%;top:43.8477%;width:7.3568%;height:11.5234%;"></a><a class="hotspot" href="job-descriptions/journeyman/"
+        aria-label="Journeyman Electrician job description"
+        title="View Journeyman Electrician job description"
+        style="left:17.3177%;top:43.8477%;width:7.8125%;height:11.5234%;"></a><a class="hotspot" href="job-descriptions/foreman/"
+        aria-label="Electrical Foreman job description"
+        title="View Electrical Foreman job description"
+        style="left:30.7943%;top:25.1953%;width:9.3099%;height:10.6445%;"></a><a class="hotspot" href="job-descriptions/superintendent/"
+        aria-label="Electrical Superintendent job description"
+        title="View Electrical Superintendent job description"
+        style="left:41.0156%;top:25.1953%;width:9.1797%;height:10.6445%;"></a><a class="hotspot" href="job-descriptions/construction-manager/"
+        aria-label="Construction Manager job description"
+        title="View Construction Manager job description"
+        style="left:51.3021%;top:25.1953%;width:8.9193%;height:10.6445%;"></a><a class="hotspot" href="job-descriptions/project-coordinator/"
+        aria-label="Project Coordinator job description"
+        title="View Project Coordinator job description"
+        style="left:30.7943%;top:40.1367%;width:9.3099%;height:10.9375%;"></a><a class="hotspot" href="job-descriptions/assistant-project-manager/"
+        aria-label="Assistant Project Manager job description"
+        title="View Assistant Project Manager job description"
+        style="left:41.0156%;top:40.1367%;width:9.3099%;height:10.9375%;"></a><a class="hotspot" href="job-descriptions/project-manager/"
+        aria-label="Project Manager job description"
+        title="View Project Manager job description"
+        style="left:51.3021%;top:40.1367%;width:8.9193%;height:10.9375%;"></a><a class="hotspot" href="job-descriptions/field-safety-specialist/"
+        aria-label="Field Safety Specialist job description"
+        title="View Field Safety Specialist job description"
+        style="left:30.8594%;top:55.6641%;width:11.4583%;height:10.8398%;"></a><a class="hotspot" href="job-descriptions/safety-manager/"
+        aria-label="Field Safety Manager job description"
+        title="View Field Safety Manager job description"
+        style="left:43.2943%;top:55.6641%;width:11.4583%;height:10.8398%;"></a><a class="hotspot" href="job-descriptions/area-safety-manager/"
+        aria-label="Area Safety Manager job description"
+        title="View Area Safety Manager job description"
+        style="left:55.3385%;top:55.6641%;width:11.5234%;height:10.8398%;"></a><a class="hotspot" href="job-descriptions/estimator/"
+        aria-label="Estimator job description"
+        title="View Estimator job description"
+        style="left:30.9245%;top:70.8008%;width:11.4583%;height:10.4492%;"></a><a class="hotspot" href="job-descriptions/senior-estimator/"
+        aria-label="Senior Estimator job description"
+        title="View Senior Estimator job description"
+        style="left:43.4245%;top:70.8008%;width:11.4583%;height:10.4492%;"></a>
+  </div>
+</main>
+</body>
+</html>
