@@ -29,3 +29,9 @@ MOBILE V4:
 - No website + / - zoom buttons are included.
 - Users zoom naturally with pinch gestures.
 - Clickable job hotspots remain attached to the brochure as it scales.
+
+MOBILE V5:
+- Removed all custom zoom controls, including -, +, percentage, and Fit.
+- Mobile uses native pinch-to-zoom only.
+- Landscape fills the available viewport as much as possible without cropping.
+- Portrait still opens with the full brochure fitted to the phone width.
