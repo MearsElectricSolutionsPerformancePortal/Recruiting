@@ -5,27 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 <title>Mears Power Path to Leadership</title>
 <style>
-html,body{margin:0;padding:0;width:100%;height:100%;background:#111}
-.viewport{width:100%;height:100vh;overflow:auto;-webkit-overflow-scrolling:touch}
-.wrap{position:relative;width:1536px;height:1024px;margin:0 auto;line-height:0}
-.brochure{display:block;width:1536px;height:1024px}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:#111;color:#fff;font-family:Arial,Helvetica,sans-serif}
+body{display:flex;flex-direction:column;touch-action:pan-x pan-y pinch-zoom}
+.toolbar{flex:none;display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:7px 12px;background:#17375e}
+.toolbar button{min-width:44px;min-height:42px;border:1px solid #f58220;border-radius:5px;background:#fff;color:#17375e;font-size:18px;font-weight:700;cursor:pointer}
+.toolbar button:disabled{opacity:.45;cursor:default}
+.toolbar button:focus-visible,.hotspot:focus-visible{outline:3px solid #f58220;outline-offset:2px}
+#fit{padding:0 16px;font-size:15px}
+#zoom-level{min-width:56px;text-align:center;font-size:14px}
+.viewport{flex:1;min-height:0;width:100%;overflow:auto;-webkit-overflow-scrolling:touch}
+.stage{position:relative;display:flex;align-items:center;justify-content:center;min-width:100%;min-height:100%;padding:12px}
+.wrap{position:relative;flex:none;width:100%;max-width:1100px;aspect-ratio:1536/1024;line-height:0}
+.brochure{display:block;width:100%;height:auto}
 .hotspot{position:absolute;display:block;z-index:20;border-radius:10px;cursor:pointer}
-.hotspot:hover{background:rgba(255,255,255,.03)}
-@media(min-width:900px){
-  .viewport{display:flex;align-items:center;justify-content:center;overflow:hidden}
-  .wrap{width:min(100vw,150.0000vh);height:auto;aspect-ratio:1536/1024}
-  .brochure{width:100%;height:100%;object-fit:contain}
-}
-@media(max-width:899px){
-  body{touch-action:pan-x pan-y pinch-zoom}
-  .viewport{overflow:auto}
-  .wrap{width:1536px;height:1024px;margin:0}
-  .brochure{width:1536px;height:1024px}
-}
+.hotspot:hover{background:rgba(255,255,255,.06)}
+@media(max-width:600px){.toolbar{gap:8px;min-height:52px;padding:5px 8px}.stage{padding:4px}}
 </style>
 </head>
 <body>
-<div class="viewport"><div class="wrap">
+<nav class="toolbar" aria-label="Power Path zoom controls">
+<button id="zoom-out" type="button" aria-label="Zoom out">−</button>
+<output id="zoom-level" aria-live="polite">100%</output>
+<button id="zoom-in" type="button" aria-label="Zoom in">+</button>
+<button id="fit" type="button">Fit</button>
+</nav>
+<div class="viewport" tabindex="0" aria-label="Power Path. Use zoom buttons to enlarge, then scroll to explore."><div class="stage"><div class="wrap">
 <img class="brochure" src="PowerPath_to_Leadership_career_brochure_final.png" alt="Mears Electric Solutions Power Path to Leadership career brochure">
 <a class="hotspot" href="job-descriptions/laborer/" aria-label="Laborer job description" title="View Laborer job description" style="left:1.4974%;top:43.8477%;width:7.0312%;height:11.5234%;"></a>
 <a class="hotspot" href="job-descriptions/apprentice/" aria-label="Apprentice Electrician job description" title="View Apprentice Electrician job description" style="left:9.3099%;top:43.8477%;width:7.3568%;height:11.5234%;"></a>
@@ -41,5 +46,34 @@ html,body{margin:0;padding:0;width:100%;height:100%;background:#111}
 <a class="hotspot" href="job-descriptions/area-safety-manager/" aria-label="Area Safety Manager job description" title="View Area Safety Manager job description" style="left:55.3385%;top:55.6641%;width:11.5234%;height:10.8398%;"></a>
 <a class="hotspot" href="job-descriptions/estimator/" aria-label="Estimator job description" title="View Estimator job description" style="left:30.9245%;top:70.8008%;width:11.4583%;height:10.4492%;"></a>
 <a class="hotspot" href="job-descriptions/senior-estimator/" aria-label="Senior Estimator job description" title="View Senior Estimator job description" style="left:43.4245%;top:70.8008%;width:11.4583%;height:10.4492%;"></a>
-</div></div>
+</div></div></div>
+<script>
+const viewport=document.querySelector('.viewport');
+const stage=document.querySelector('.stage');
+const wrap=document.querySelector('.wrap');
+const zoomIn=document.querySelector('#zoom-in');
+const zoomOut=document.querySelector('#zoom-out');
+let zoom=1;
+function render(center=true){
+ const oldWidth=stage.offsetWidth,oldHeight=stage.offsetHeight;
+ const cx=(viewport.scrollLeft+viewport.clientWidth/2)/oldWidth;
+ const cy=(viewport.scrollTop+viewport.clientHeight/2)/oldHeight;
+ const mobile=matchMedia('(max-width:600px)').matches;
+ const pad=mobile?4:12;
+ const fitWidth=Math.max(1,Math.min(viewport.clientWidth-pad*2,(viewport.clientHeight-pad*2)*1.5,mobile?Infinity:1100));
+ const width=fitWidth*zoom,height=width/1.5;
+ wrap.style.maxWidth='none';
+ wrap.style.width=width+'px';
+ stage.style.width=Math.max(viewport.clientWidth,width+pad*2)+'px';
+ stage.style.height=Math.max(viewport.clientHeight,height+pad*2)+'px';
+ document.querySelector('#zoom-level').textContent=Math.round(zoom*100)+'%';
+ zoomOut.disabled=zoom<=0.5;zoomIn.disabled=zoom>=4;
+ if(center){viewport.scrollLeft=cx*stage.offsetWidth-viewport.clientWidth/2;viewport.scrollTop=cy*stage.offsetHeight-viewport.clientHeight/2;}
+}
+zoomIn.addEventListener('click',()=>{zoom=Math.min(4,+(zoom+0.25).toFixed(2));render();});
+zoomOut.addEventListener('click',()=>{zoom=Math.max(0.5,+(zoom-0.25).toFixed(2));render();});
+document.querySelector('#fit').addEventListener('click',()=>{zoom=1;render(false);viewport.scrollLeft=0;viewport.scrollTop=0;});
+new ResizeObserver(()=>render(false)).observe(viewport);
+render(false);
+</script>
 </body></html>
