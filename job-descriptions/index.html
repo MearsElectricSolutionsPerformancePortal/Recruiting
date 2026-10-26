@@ -1,11 +1,280 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Mears Electric Solutions Job Descriptions</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7f9;
+      color: #222;
+    }
+
+    .top-bar {
+      height: 8px;
+      background: #f58220;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 22px 20px;
+      border-bottom: 1px solid #d9e0e5;
+    }
+
+    .header-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      max-width: 240px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero {
+      background: #17375e;
+      color: white;
+      padding: 48px 20px;
+    }
+
+    .hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      color: #f58220;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 42px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-top: 14px;
+      max-width: 700px;
+      color: #f0f3f6;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px 65px;
+    }
+
+    .section-title {
+      color: #17375e;
+      font-size: 24px;
+      margin: 36px 0 16px;
+    }
+
+    .section-title:first-child {
+      margin-top: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .job-card {
+      display: block;
+      background: white;
+      text-decoration: none;
+      color: #17375e;
+      border-radius: 8px;
+      padding: 22px;
+      font-size: 18px;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0,0,0,.07);
+      border-left: 5px solid #f58220;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .job-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,.12);
+    }
+
+    .footer-button {
+      margin-top: 38px;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      background: #f58220;
+      color: white;
+      font-weight: 700;
+      padding: 14px 22px;
+      border-radius: 5px;
+    }
+
+    footer {
+      background: #17375e;
+      color: white;
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 34px;
+      }
+
+      .logo {
+        max-width: 200px;
+      }
+
+      .hero {
+        padding: 38px 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Mears Electric Solutions</h1>
-  <h2>Job Descriptions</h2>
-  <p>Explore career paths and job descriptions.</p>
+
+  <div class="top-bar"></div>
+
+  <header>
+    <div class="header-inner">
+      <img
+        src="/Recruiting/Mears%202nd%20Logo.jpeg"
+        alt="Mears Electric Solutions"
+        class="logo">
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+
+      <div class="eyebrow">
+        Construct Your Career
+      </div>
+
+      <h1>
+        Job Descriptions
+      </h1>
+
+      <p>
+        Explore career opportunities across Mears Electric Solutions and learn
+        more about the responsibilities and qualifications for each role.
+      </p>
+
+    </div>
+  </section>
+
+  <main>
+
+    <h2 class="section-title">Field & Operations</h2>
+
+    <div class="grid">
+
+      <a class="job-card" href="laborer/">
+        Laborer
+      </a>
+
+      <a class="job-card" href="apprentice/">
+        Apprentice Electrician
+      </a>
+
+      <a class="job-card" href="journeyman/">
+        Journeyman Electrician
+      </a>
+
+      <a class="job-card" href="superintendent/">
+        Electrical Superintendent
+      </a>
+
+      <a class="job-card" href="construction-manager/">
+        Construction Manager
+      </a>
+
+    </div>
+
+
+    <h2 class="section-title">Project Management</h2>
+
+    <div class="grid">
+
+      <a class="job-card" href="project-coordinator/">
+        Project Coordinator
+      </a>
+
+      <a class="job-card" href="assistant-project-manager/">
+        Assistant Project Manager
+      </a>
+
+      <a class="job-card" href="project-manager/">
+        Project Manager
+      </a>
+
+    </div>
+
+
+    <h2 class="section-title">Estimating</h2>
+
+    <div class="grid">
+
+      <a class="job-card" href="estimator/">
+        Estimator
+      </a>
+
+    </div>
+
+
+    <h2 class="section-title">Safety</h2>
+
+    <div class="grid">
+
+      <a class="job-card" href="field-safety-specialist/">
+        Field Safety Specialist
+      </a>
+
+      <a class="job-card" href="safety-manager/">
+        Field Safety Manager
+      </a>
+
+    </div>
+
+
+    <div class="footer-button">
+
+      <a
+        class="button"
+        href="https://careers.mears.net/careers/"
+        target="_blank"
+        rel="noopener">
+        Explore Current Mears Opportunities
+      </a>
+
+    </div>
+
+  </main>
+
+  <footer>
+    Mears Electric Solutions | A Quanta Services Company
+  </footer>
+
 </body>
 </html>
