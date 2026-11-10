@@ -1,0 +1,19 @@
+MEARS WEBSITE UPDATE
+
+The new website files are already committed to the Recruiting repository.
+GitHub Pages failed during deployment, and a retry was requested.
+
+If you need to upload the files manually:
+1. Unzip this package.
+2. Open https://github.com/MearsElectricSolutionsPerformancePortal/Recruiting
+3. Select Add file, then Upload files.
+4. Upload index.html, brochure-page-1.jpg and brochure-page-2.jpg to the main folder of the repository. Do not upload the containing folder or the ZIP.
+5. Commit the changes to main. If GitHub reports no changes, these files are already there; open Actions and re-run the failed pages build and deployment job instead.
+6. Once deployment succeeds, open https://mearselectricsolutionsperformanceportal.github.io/Recruiting/ and refresh.
+
+The site shows the approved PowerPath brochure first, then Total Rewards.
+The 14 original job-description links and Mears Careers link are restored.
+The existing QR code redirects to the same site and does not need replacement.
+Keep the existing job-descriptions folder. No changes to its files are required.
+
+Mears_PowerPath_and_Total_Rewards.pdf is the two-page PDF for sharing or printing, with clickable links. It does not need to be uploaded for the website to work.
